@@ -1,0 +1,13 @@
+.main{
+    margin-left: 100px;;
+}
+
+.formSection{
+    background-color: #f8f8f8;
+}
+
+.spinner {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+}

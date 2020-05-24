@@ -1,0 +1,24 @@
+<div *ngIf="!restCall" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="main">
+    <h1>Add Contact</h1>
+    <mat-card class="formSection">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+            <div>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput id="name" type="text" formControlName="name">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput id="address" type="tel" pattern="[0-9]{10}" formControlName="mobileNumber">
+                </mat-form-field>
+            </div>
+            <button mat-raised-button color="primary" type="submit">Add</button>
+        </form>
+    </mat-card>
+</div>

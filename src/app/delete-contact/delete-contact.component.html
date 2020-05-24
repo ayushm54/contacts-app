@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Following Contact would be deleted</h2>
+<mat-dialog-content>
+    <ul>
+        <li>
+            {{ data.name + ' : ' + data.mobileNumber }}
+        </li>
+    </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+    <button mat-raised-button cdkFocusInitial color="warn" (click)="deleteContact()">
+        Delete
+    </button>
+</mat-dialog-actions>
+<mat-progress-bar mode="indeterminate" class="progressBar" *ngIf="!restCall">
+</mat-progress-bar>

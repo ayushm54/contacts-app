@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>
+    <span>
+        <mat-icon class="editIcon" aria-hidden="false" aria-label="Edit icon">account_box</mat-icon>
+    </span>
+    Contact
+</h2>
+<mat-dialog-content>
+    <div>
+        Name : {{data.name}}
+    </div>
+    <div>
+        Number: {{data.mobileNumber}}
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>

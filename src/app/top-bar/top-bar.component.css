@@ -1,0 +1,19 @@
+.main{
+    background-color: #673ab7;
+}
+
+.hyperLink{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.chekOutButton{
+    float: right;
+}
+
+.flexExpand {
+    flex: 1 1 auto;
+}
+a{
+    text-decoration: none;
+}

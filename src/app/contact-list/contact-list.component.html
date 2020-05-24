@@ -1,0 +1,45 @@
+<h1><span>
+  <mat-icon class="" aria-hidden="false" aria-label="Contacts">contacts</mat-icon>
+</span>Contact List</h1>
+
+<div *ngIf="!restCall" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="contacts && contacts.length>0">
+  <mat-table [dataSource]="contacts" class="mat-elevation-z8">
+    <!-- Index Column -->
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i = index"> {{i+1}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="phoneNumber">
+      <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.mobileNumber}} </mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-stroked-button class="actionButtonDetails" (click)="openContactDetails(element)">Details</button>
+        <button mat-stroked-button class="actionButtonEdit actionButtons" (click)="editContact(element)">Edit</button>
+        <button mat-stroked-button class="actionButtonDelete actionButtons" (click)="openDeleteDialog(element)">Delete</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+<div *ngIf="contacts && contacts.length==0">
+  <p>No contacts available. Please add a contact.</p>
+</div>

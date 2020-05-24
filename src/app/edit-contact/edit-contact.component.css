@@ -1,0 +1,29 @@
+mat-card-header {
+    background-color: #673ab7; 
+    width:100%;
+    color: white;
+    padding-top: 15px;
+}
+
+mat-card{
+    padding:0px;
+    border-radius: 0px !important;
+}
+
+mat-card-content{
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+mat-label{
+    font-size: medium;
+}
+
+.progress {
+    margin-top: 10px;
+}
+
+.errorMessage {
+    margin-bottom: 10px;
+    color: red;
+}

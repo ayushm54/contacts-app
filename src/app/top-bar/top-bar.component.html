@@ -1,0 +1,14 @@
+<mat-toolbar class="flexSpaceBetween main">
+    <a class="hyperLink" [routerLink]="['/']">
+      <h1>My Contacts</h1>
+    </a>
+    <span class="flexExpand"></span>
+    <span class="chekOutButton">
+      <a [routerLink]="['/addContact']">
+        <button mat-flat-button>
+          <i class="material-icons">add</i>
+          Add New
+        </button>
+      </a>
+    </span>
+  </mat-toolbar>
