@@ -22,3 +22,16 @@
 .actionButtons{
   margin-left: 3px;;
 }
+
+.tableDivision{
+  margin-top: 50px;
+}
+
+.mat-row:hover {
+  background-color: #E8E8E8;
+}
+
+.matTableHeight{
+  max-height: 400px;
+  overflow: scroll;
+}

@@ -1,13 +1,27 @@
-<h1><span>
-  <mat-icon class="" aria-hidden="false" aria-label="Contacts">contacts</mat-icon>
-</span>Contact List</h1>
-
+<div>
+  <div style="float: left;">
+    <h1><span>
+        <mat-icon aria-hidden="false" aria-label="Contacts">contacts</mat-icon>
+      </span>Contact List</h1>
+  </div>
+  <div style="float: right; ">
+    <mat-form-field>
+      <mat-label>Filter by name</mat-label>
+      <input matInput id="name" type="text" (keyup)="filterList($event)">
+    </mat-form-field>
+  </div>
+</div>
+<br>
 <div *ngIf="!restCall" class="spinner">
   <mat-spinner></mat-spinner>
 </div>
 
-<div *ngIf="contacts && contacts.length>0">
-  <mat-table [dataSource]="contacts" class="mat-elevation-z8">
+<div *ngIf="contacts && contacts.length==0">
+  <p>No contacts available. Please add a contact.</p>
+</div>
+
+<div class="tableDivision" *ngIf="contacts && contacts.length>0">
+  <mat-table [dataSource]="contacts" class="mat-elevation-z8 matTableHeight">
     <!-- Index Column -->
     <ng-container matColumnDef="index">
       <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
@@ -32,14 +46,12 @@
       <mat-cell *matCellDef="let element">
         <button mat-stroked-button class="actionButtonDetails" (click)="openContactDetails(element)">Details</button>
         <button mat-stroked-button class="actionButtonEdit actionButtons" (click)="editContact(element)">Edit</button>
-        <button mat-stroked-button class="actionButtonDelete actionButtons" (click)="openDeleteDialog(element)">Delete</button>
+        <button mat-stroked-button class="actionButtonDelete actionButtons"
+          (click)="openDeleteDialog(element)">Delete</button>
       </mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-</div>
-<div *ngIf="contacts && contacts.length==0">
-  <p>No contacts available. Please add a contact.</p>
 </div>

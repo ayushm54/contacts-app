@@ -13,6 +13,7 @@ import { ContactDetailsComponent } from '../contact-details/contact-details.comp
 })
 export class ContactListComponent implements OnInit, OnDestroy {
     contacts;
+    originalContacts;
     restCall = false;
     mySubscription: any;
     displayedColumns: string[] = ['index', 'name', 'phoneNumber', 'actions'];
@@ -35,6 +36,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
         this.restCall = false;
         this.contactService.getContactList().subscribe((data: any[]) => {
             this.contacts = data;
+            this.originalContacts = data;
             this.restCall = true;
         });
     }
@@ -76,5 +78,16 @@ export class ContactListComponent implements OnInit, OnDestroy {
         const dialogRef = this.dialog.open(ContactDetailsComponent, {
             data: element
         });
+    }
+
+    filterList(event: any) {
+        const name = String(event.target.value);
+        if (name !== '') {
+            this.contacts = this.contacts.filter((item) => {
+                return item.name.startsWith(name);
+            });
+        } else {
+            this.contacts = this.originalContacts;
+        }
     }
 }
